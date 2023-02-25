@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiply Game</title>
+    <style>
+        body {
+            display: flex;
+            height: 95vh;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        #main {
+            border: 5px double darkorchid;
+            border-radius: 200px;
+            width: 400px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 0px 20px darkorchid;
+            background-color: rgba(153, 50, 204, 0.1);
+        }
+        #answer {
+            text-align: center;
+            font-size: 20px;
+            border-radius: 99px;
+            
+        }
+        #result, #correct{
+            text-align: center;
+            font-size: 20px;
+        }
+        #submit {
+            width: 170px;
+            font-size: 20px;
+            border-radius: 99px;
+        }
+        #submit:hover{
+            background-color: royalblue;
+            color: white;
+            box-shadow: 2px 0px 20px royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 id="question">Question</h1>
+        <input type="number" id="answer" placeholder="Answer">
+        <p id="result">Result :</p>
+        <p id="correct"></p>
+        <button id="submit" onclick="multiply()">OK</button>
+    </div>
+</body>
+<script>
+    let
+        num1 = Math.floor(Math.random() * 20),
+        num2 = Math.floor(Math.random() * 10),
+        num3 = num1 * num2;
+        
+    document.getElementById("question").innerHTML = `What is ${num1} * ${num2} ?`
+    function multiply() {
+        let ans = parseInt(document.getElementById("answer").value);
+        if (ans == num3) {
+            document.getElementById("result").innerHTML = "Right"
+            document.getElementById("result").style.color="royalblue"
+            document.getElementById("main").style.borderColor="royalblue"
+            document.getElementById("main").style.boxShadow="2px 0px 20px royalblue"
+            document.getElementById("main").style.background="rgba(65, 105, 225, 0.1)"
+            document.getElementById("correct").innerHTML = "You are good"
+        }else {
+            document.getElementById("result").innerHTML = "Wrong"
+            document.getElementById("result").style.color="red"
+            document.getElementById("main").style.borderColor="red"
+            document.getElementById("main").style.boxShadow="2px 0px 20px red"
+            document.getElementById("main").style.background="rgba(255, 0, 0, 0.1)"
+            document.getElementById("correct").innerHTML = "Correct ans is : "+num3 
+        }
+    }
+</script>
+</html>
